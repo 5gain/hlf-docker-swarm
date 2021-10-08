@@ -1,0 +1,26 @@
+version: '3'
+
+networks:
+  test:
+    external:
+      name: test
+
+services:
+    caliper:
+        deploy:
+          placement:
+            constraints:
+              - node.labels.name == manager
+        image: stefanklinger/caliper:1.0
+        tty: true
+        stdin_open: true
+        environment:
+        - CALIPER_BENCHCONFIG=benchmarks/myAssetBenchmark.yaml
+        - CALIPER_NETWORKCONFIG=networks/networkConfig.yaml
+        volumes:
+        - ~/caliper-workspace:/hyperledger/caliper/workspace
+        - ~/hlf-docker-swarm:/hyperledger/caliper/hlf-docker-swarm
+        networks:
+          test:
+            aliases:
+            - caliper.example.com
