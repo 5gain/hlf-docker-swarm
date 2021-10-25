@@ -43,7 +43,7 @@ Execute the following commands, replace the IDs accordingly:
     
 # Generating Certificates for Peers and Orderers
 
-## 
+## Ensure Clean Set-Up
 
 Ensure that on each node the following directories are empty, otherwise clean them
 
@@ -57,7 +57,7 @@ Also check that no old volumes are available on each node
     
 Delete any found volumes
 
-   docker volumne rm <volume name>
+    docker volumne rm <volume name>
 
 ## Run on manager node:
 
@@ -101,6 +101,20 @@ Assuming that aliases for manager, worker1 and worker2 have been set up in ``/et
 
 # Creating genesis blocks, channel transaction, anchor peers
 
+Create the genesis block on the manager node
+
     ./scripts/createGenesis.sh
+
+Create channel transaction and the anchor peers
     
     ./scripts/createChannelTx.sh
+    
+# Copy Anchor Peers
+
+# Starting Peers, Orderer and CouchDb
+
+# Creating Application Channel
+
+# Joining Channel
+
+# Update Anchor Peers
