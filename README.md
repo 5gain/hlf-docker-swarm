@@ -19,4 +19,5 @@ See section on [Deploying the Chaincode](chaincode/README.md)
 
 ## Run Caliper
 
+See section on [Caliper](caliper-workspace/README.md)
 
