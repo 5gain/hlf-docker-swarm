@@ -9,7 +9,7 @@ caliper:
 channels:
   - channelName: mychannel
     contracts:
-    - id: basic
+    - id: basic2
 
 organizations:
   - mspid: Org1MSP
@@ -18,11 +18,11 @@ organizations:
       - name: 'Admin1'
         admin: true
         clientPrivateKey:
-          path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/f836cd98c8cdd5f6387d02b37b81edbc5cf0c2ec29c83765f1f85eabb26f2feb_sk'
+          path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/6175b5029b90960a317434108c3b25c2a1cb9d3dff203c4c8761d3887e7251d1_sk'
         clientSignedCert:
           path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/cert.pem'
     connectionProfile:
-      path: '../hlf-docker-swarm/api-server/connection-org1.yaml'
+      path: '../hlf-docker-swarm/api-server/connection-org1.json'
       discover: true
 
   - mspid: Org2MSP
@@ -31,11 +31,11 @@ organizations:
       - name: 'Admin1'
         admin: true
         clientPrivateKey:
-          path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/89f4fcd40f87208e5cb960a715346036c2b76a8b76fa6bc43adeb614d9c48afc_sk'
+          path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/ed1290e800c0adcba53870e82a37d7559c870f92374c790fcd785aaaf938ccfd_sk'
         clientSignedCert:
           path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/cert.pem'
     connectionProfile:
-      path: '../hlf-docker-swarm/api-server/connection-org2.yaml'
+      path: '../hlf-docker-swarm/api-server/connection-org2.json'
       discover: true
 
   - mspid: Org3MSP
@@ -44,9 +44,9 @@ organizations:
       - name: 'Admin1'
         admin: true
         clientPrivateKey:
-          path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/f785a4441c28b48c0740f0d7d043ecdce7fdd1d809ffd9a5a16e2086cc8bae54_sk'
+          path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/c54a5b918483118e764bc26832e9ed0dd0ce38e1b5da2e66ed744fe49ddabe44_sk'
         clientSignedCert:
           path: '../hlf-docker-swarm/test-network/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/cert.pem'
     connectionProfile:
-      path: '../hlf-docker-swarm/api-server/connection-org3.yaml'
+      path: '../hlf-docker-swarm/api-server/connection-org3.json'
       discover: true 
