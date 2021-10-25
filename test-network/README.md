@@ -43,18 +43,34 @@ Execute the following commands, replace the IDs accordingly:
     
 # Generating Certificates for Peers and Orderers
 
-Run on manager node:
+## 
+
+Ensure that on each node the following directories are empty, otherwise clean them
+
+    rm -fr organizations/peerOrganizations/*
+    rm -fr organizations/ordererOrganizations/*
+    rm -fr channel-artifacts
+    
+Also check that no old volumes are available on each node
+
+    docker volume ls|grep hlf
+    
+Delete any found volumes
+
+   docker volumne rm <volume name>
+
+## Run on manager node:
 
     source ./organizations/fabric-ca/registerEnroll.sh
     createOrg1
     createOrderer
     
-Run on worker1
+## Run on worker1
 
     source ./organizations/fabric-ca/registerEnroll.sh
     createOrg2
     
-Run on worker2
+## Run on worker2
 
     source ./organizations/fabric-ca/registerEnroll.sh
     createOrg3
@@ -85,4 +101,6 @@ Assuming that aliases for manager, worker1 and worker2 have been set up in ``/et
 
 # Creating genesis blocks, channel transaction, anchor peers
 
-
+    ./scripts/createGenesis.sh
+    
+    ./scripts/createChannelTx.sh
