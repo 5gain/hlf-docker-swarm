@@ -12,14 +12,14 @@
 # limitations under the License.
 #
 
-FROM node:10.22-alpine
+FROM node:10.22
 
 # require to set these explicitly to avoid mistakes
 #ARG npm_registry
 #ARG caliper_version
 
 # Install packages for dependency compilation
-RUN apk add --no-cache python g++ make git
+RUN apt update && apt install python g++ make git bash
 #RUN mkdir -p /hyperledger/caliper/workspace && chown -R node:node /hyperledger/caliper/workspace
 
 # execute as the "node" user, created in the base image
@@ -41,4 +41,4 @@ RUN npm install --only=prod @hyperledger/caliper-cli@0.4.2 \
 
 #ENTRYPOINT ["npx caliper"]
 #CMD ["--version"]
-ENTRYPOINT ["/bin/sh"]
+#ENTRYPOINT ["/bin/bash"]
