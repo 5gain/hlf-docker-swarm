@@ -75,8 +75,13 @@ Assuming that aliases for manager, worker1 and worker2 have been set up in ``/et
     
 ## Copy Org2 Certificates from worker1 node to manager and worker2
 
+    scp -r organizations/peerOrganizations/org2.example.com ubuntu@manager:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
+    scp -r organizations/peerOrganizations/org2.example.com ubuntu@worker2:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
+
 ## Copy Org3 Certificates from worker2 node to manager and worker1
 
+    scp -r organizations/peerOrganizations/org3.example.com ubuntu@manager:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
+    scp -r organizations/peerOrganizations/org3.example.com ubuntu@worker1:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
 
 # Creating genesis blocks, channel transaction, anchor peers
 
