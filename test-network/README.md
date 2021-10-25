@@ -1,5 +1,7 @@
 # Fabric CA Setup
 
+The Fabric CA Docker images (1.4.8) for ARM64 were created based on this description: [https://github.com/chinyati/hyperledger-fabric-arm64-images]
+
 ## Create Network
 
 Execute the following command on the manager node:
@@ -50,8 +52,9 @@ Run on manager node:
 Run on worker1
 
     source ./organizations/fabric-ca/registerEnroll.sh
+    createOrg2
     
 Run on worker2
 
     source ./organizations/fabric-ca/registerEnroll.sh
-    
+    createOrg3
