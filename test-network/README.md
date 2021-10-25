@@ -58,3 +58,18 @@ Run on worker2
 
     source ./organizations/fabric-ca/registerEnroll.sh
     createOrg3
+    
+# Copying Certificates to other nodes
+
+Assuming that aliases for manager, worker1 and worker2 have been set up in ``/etc/hosts`` 
+
+Copy Orderer Certificates from manager node to workers
+
+Copy Org1 Certificates from manager node to workers
+
+    scp -r organizations/peerOrganizations/org1.example.com ubuntu@worker1:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
+    scp -r organizations/peerOrganizations/org1.example.com ubuntu@worker2:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
+    
+    
+
+# Creating genesis blocks, channel transaction, anchor peers
