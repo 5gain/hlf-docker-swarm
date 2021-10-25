@@ -63,13 +63,21 @@ Run on worker2
 
 Assuming that aliases for manager, worker1 and worker2 have been set up in ``/etc/hosts`` 
 
-Copy Orderer Certificates from manager node to workers
+## Copy Orderer Certificates from manager node to workers
 
-Copy Org1 Certificates from manager node to workers
+    scp -r organizations/ordererOrganizations/example.com ubuntu@worker1:/home/ubuntu/hlf-docker-swarm/test-network/organizations/ordererOrganizations/
+    scp -r organizations/ordererOrganizations/example.com ubuntu@worker2:/home/ubuntu/hlf-docker-swarm/test-network/organizations/ordererOrganizations/
+ 
+## Copy Org1 Certificates from manager node to workers
 
     scp -r organizations/peerOrganizations/org1.example.com ubuntu@worker1:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
     scp -r organizations/peerOrganizations/org1.example.com ubuntu@worker2:/home/ubuntu/hlf-docker-swarm/test-network/organizations/peerOrganizations/
     
-    
+## Copy Org2 Certificates from worker1 node to manager and worker2
+
+## Copy Org3 Certificates from worker2 node to manager and worker1
+
 
 # Creating genesis blocks, channel transaction, anchor peers
+
+
