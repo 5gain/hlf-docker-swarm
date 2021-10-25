@@ -3,6 +3,7 @@
 ## Create Network
 
 Execute the following command on the manager node:
+
     docker network create --driver=overlay --attachable test 
     docker network ls
     
@@ -19,7 +20,7 @@ The output will look something like this:
     
 ## Label Nodes
 
-determine the Nodes IDs in the network. The hostnames were previously set in ``/etc/hostname``
+Determine the Nodes IDs in the network. The hostnames were previously set in ``/etc/hostname``
 
     docker node ls
 
@@ -35,3 +36,22 @@ Execute the following commands, replace the IDs accordingly:
     docker node update --label-add name=worker2 2da4qs5bu48ml0k0uqvt4xfos
 
 ## Deploy CA Services
+
+    docker stack deploy -c docker/docker-compose-ca.yaml hlf
+    
+# Generating Certificates for Peers and Orderers
+
+Run on manager node:
+
+    source ./organizations/fabric-ca/registerEnroll.sh
+    createOrg1
+    createOrderer
+    
+Run on worker1
+
+    source ./organizations/fabric-ca/registerEnroll.sh
+    
+Run on worker2
+
+    source ./organizations/fabric-ca/registerEnroll.sh
+    
