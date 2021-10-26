@@ -23,3 +23,8 @@ See section on [Deploying the Chaincode](chaincode/README.md)
 
 See section on [Caliper](caliper-workspace/README.md)
 
+## Lessons Learned
+
+The most problems occurred when the network was not created from a clean state. Thus ensure that no old volumes, certificates or transaction are left behind before re-creating the network.
+
+Another problem is an inconsistency between the version of the docker containers. If you make changes to containers, ensure that this version is also propagated to the other nodes (e.g. using ``docker pull`` or ``docker save <image> | bzip2 | ssh user@host docker load``)
