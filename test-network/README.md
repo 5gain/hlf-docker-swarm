@@ -129,7 +129,34 @@ Get the container ID on the manager node
 An run the bash shell inside the container, using the returned container id
 
     docker exec -it cc0e0e377563  bash
+    
+and run the following commands inside the container
+
+    export CHANNEL_NAME=mychannel
+    ./scripts/create_app_channel.sh
+
+# Copy Channel Block to Workers
+
 
 # Joining Channel
 
+Run inside the cli container on each node
+
+   peer channel join -b ./channel-artifacts/mychannel.block
+
+
 # Update Anchor Peers
+
+Run inside the cli container on the nodes.
+
+Manager:
+
+    ./scripts/updateAnchorPeer.sh mychannel Org1MSP
+
+Worker1:
+
+    ./scripts/updateAnchorPeer.sh mychannel Org2MSP
+
+Worker2:
+
+    ./scripts/updateAnchorPeer.sh mychannel Org3MSP
