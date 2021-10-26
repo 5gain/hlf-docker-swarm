@@ -111,7 +111,14 @@ Create channel transaction and the anchor peers
     
 # Copy Anchor Peers
 
+Copy the generated channel artifacts from manager to worker nodes:
+
+    scp -r channel-artifacts/mychannel.block ubuntu@worker1:/home/ubuntu/hlf-docker-swarm/test-network/channel-artifacts/
+    scp -r channel-artifacts/mychannel.block ubuntu@worker2:/home/ubuntu/hlf-docker-swarm/test-network/channel-artifacts/
+
 # Starting Peers, Orderer and CouchDb
+
+Run on the manager node:
 
     docker stack deploy -c docker/docker-compose-test-net.yaml -c docker/docker-compose-couch.yaml hlf
 
@@ -137,14 +144,19 @@ and run the following commands inside the container
 
 # Copy Channel Block to Workers
 
-
+     scp -r channel-artifacts/mychannel.block ubuntu@worker1:/home/ubuntu/hlf-docker-swarm/test-network/channel-artifacts/
+     scp -r channel-artifacts/mychannel.block ubuntu@worker2:/home/ubuntu/hlf-docker-swarm/test-network/channel-artifacts/
+     
 # Joining Channel
 
-Run inside the cli container on each node
+Run inside the cli container on manager, worker1 and worker2
 
    peer channel join -b ./channel-artifacts/mychannel.block
 
-
+You can verify the joined channels using
+   
+   peer channel list
+   
 # Update Anchor Peers
 
 Run inside the cli container on the nodes.
