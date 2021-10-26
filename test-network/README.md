@@ -113,7 +113,22 @@ Create channel transaction and the anchor peers
 
 # Starting Peers, Orderer and CouchDb
 
+    docker stack deploy -c docker/docker-compose-test-net.yaml -c docker/docker-compose-couch.yaml hlf
+
 # Creating Application Channel
+
+Deploy the Fabric Tools client containers on each node:
+
+    docker stack deploy -c docker/docker-compose-cli.yaml hlf
+
+Get the container ID on the manager node
+
+    docker ps|grep cli
+    cc0e0e377563   stefanklinger/fabric-tools:2.4.0     "/bin/bash"              About a minute ago   Up About a minute hlf_cliOrg1.1.t7fuq3x1k56dtysa6q7l0tpyq
+
+An run the bash shell inside the container, using the returned container id
+
+    docker exec -it cc0e0e377563  bash
 
 # Joining Channel
 
