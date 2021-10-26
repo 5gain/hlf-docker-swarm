@@ -149,13 +149,13 @@ and run the following commands inside the container
      
 # Joining Channel
 
-Run inside the cli container on manager, worker1 and worker2
+Run inside the cli container on manager, worker1 and worker2 (using ``docker ps|grep cli`` and ``docker exec -it <container> bash``
 
-   peer channel join -b ./channel-artifacts/mychannel.block
+     peer channel join -b ./channel-artifacts/mychannel.block
 
 You can verify the joined channels using
    
-   peer channel list
+     peer channel list
    
 # Update Anchor Peers
 
