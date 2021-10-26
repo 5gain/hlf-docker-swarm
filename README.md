@@ -2,7 +2,7 @@
 
 This is a setup of a Hyperledger Fabric test network with 3 nodes an ARM64 architecture. At the moment, HLF does not support ARM64 out of the box. 
 
-The Fabric images und binaries were created using the fork vom main branch (2.4.0) here (https://github.com/5gain/fabric)
+The Fabric images und binaries were created using the fork vom main branch (2.4.0) here (https://github.com/5gain/fabric). The images are available at https://hub.docker.com/repository/docker/stefanklinger
 
 ## Creating a swarm network
 
