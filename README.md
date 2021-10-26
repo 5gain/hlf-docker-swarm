@@ -25,6 +25,10 @@ See section on [Caliper](caliper-workspace/README.md)
 
 ## Lessons Learned
 
-The most problems occurred when the network was not created from a clean state. Thus ensure that no old volumes, certificates or transaction are left behind before re-creating the network.
+The most problems occurred when the network was not created from a clean state. Thus ensure that no old volumes, certificates or transactions are left behind before re-creating the network.
 
-Another problem is an inconsistency between the version of the docker containers. If you make changes to containers, ensure that this version is also propagated to the other nodes (e.g. using ``docker pull`` or ``docker save <image> | bzip2 | ssh user@host docker load``)
+Another problem is an inconsistency between the version of the docker containers. If you make changes to containers, ensure that this version is also propagated to the other nodes (e.g. using ``docker pull`` or ``docker save <image> | bzip2 | ssh user@host docker load``).
+
+The standard Fabric Images are based on Alpine Linux. Unfortunately, the peer image produced segmentation faults when starting. The GDB Debug showed a problem with musl. This Problem does not occurr with Ubuntu, as this distribution uses standard libc.
+
+Another issue occurred with the version of the gRPC und Protobuf libraries, the dependencies in the main branch were pretty old. These libraries only recently received official support for the ARM64 architecture: https://grpc.io/blog/grpc-on-arm64/. Thus an update to newer versions eliminated the observed errors.
