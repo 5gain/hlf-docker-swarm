@@ -31,4 +31,6 @@ Another problem is an inconsistency between the version of the docker containers
 
 The standard Fabric Images are based on Alpine Linux. Unfortunately, the peer image produced segmentation faults when starting. The GDB Debug showed a problem with musl. This Problem does not occurr with Ubuntu, as this distribution uses standard libc.
 
-Another issue occurred with the version of the gRPC und Protobuf libraries, the dependencies in the main branch were pretty old. These libraries only recently received official support for the ARM64 architecture: https://grpc.io/blog/grpc-on-arm64/. Thus an update to newer versions eliminated the observed errors.
+Another issue occurred with the version of the gRPC und Protobuf libraries, the dependencies in the main branch were pretty old. These libraries only recently received official support for the ARM64 architecture: https://grpc.io/blog/grpc-on-arm64/. Thus an update to newer versions eliminated some of the observed errors.
+
+The environment setting ``GODEBUG=netdns=go`` in the docker-compose.yaml for peer, baseos und ccenv also increased the stability of these containers.
