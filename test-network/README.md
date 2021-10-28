@@ -105,7 +105,7 @@ Create the genesis block on the manager node
 
     ./scripts/createGenesis.sh
 
-Create channel transaction and the anchor peers
+Create channel transaction and the anchor peers by running the following on the manager node
     
     ./scripts/createChannelTx.sh
     
