@@ -18,6 +18,7 @@ See section on [Deploying the Chaincode](chaincode/README.md)
 
 ## Create API Server
 
+See section on [Creating the API Server](api-server/README.md)
 
 ## Run Caliper
 
