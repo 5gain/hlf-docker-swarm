@@ -15,7 +15,8 @@ run inside the container
 
 Copy the packaged chaincode from manager to each worker
 
-
+    scp /home/ubuntu/hlf-docker-swarm/chaincode/basic.tar.gz ubuntu@worker1:/home/ubuntu/hlf-docker-swarm/chaincode/
+    scp /home/ubuntu/hlf-docker-swarm/chaincode/basic.tar.gz ubuntu@worker2:/home/ubuntu/hlf-docker-swarm/chaincode/
 
 On each node inside the cli container run
 
@@ -41,17 +42,20 @@ depending on which organizations have approved the chaincode
 
 # Commit Chaincode
 
-On each node
+On each node inside the cli container run
 
     ./scripts/commit_cc.sh
 
 # Invoke Transactions
 
-On manager node
+On manager node inside the cli container run
 
     source ./scripts/envVar.sh
     parsePeerConnectionParameters 1 2 3
-    
-    echo $PEER_CONN_PARMS
     ./scripts/invoke_cc.sh
     
+Alternatively on node 2, run     
+    
+    source ./scripts/envVar.sh
+    parsePeerConnectionParameters 2
+    ./scripts/invoke_cc.sh
